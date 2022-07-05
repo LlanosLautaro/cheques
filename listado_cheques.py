@@ -1,8 +1,10 @@
 import pandas as pd
-df = pd.read_csv("cheques.csv")
-
 from datetime import datetime
 dt = datetime.now()
+
+df = pd.read_csv("cheques.csv")
+
+df['FechaPago'] = pd.to_datetime(df['FechaPago'], format="%d/%m/%Y")
 
 UserDni = int(input("Ingrese su DNI: "))
 insertarTipo = input("Ingrese el tipo de cheque (EMITIDO o DEPOSITADO): ").upper()
